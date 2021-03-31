@@ -1,9 +1,2 @@
-@import "scss/style1";
-
-* {
-  color: red;
-}
-
-body {
-  text-align: center;
-}
+@import "~normalize.css/normalize.css";
+@import "scss";

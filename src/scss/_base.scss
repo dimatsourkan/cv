@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+html, body {
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 50px 10px;
+  background: #edf0f2;
+}
+
+.container {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(14, 19, 24, .07);
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.page-header {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+
+  .header-title {
+    text-transform: uppercase;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+  }
+
+  &:before {
+    z-index: -2;
+    background-image: url("asset/resource/head-bg.jpg");
+    background-size: cover;
+    background-position: top center;
+    filter: blur(5px);
+  }
+
+  &:after {
+    z-index: -1;
+    background: rgba(255,255,255, .3);
+  }
+}
+
+.cv-avatar {
+  width: 200px;
+  height: 200px;
+  background: rgba(255,255,255,.7);
+  border-radius: 100%;
+  margin: 20px auto;
+}
+
+.sidebar {
+  flex: 1 1 360px;
+  padding: 10px 30px;
+}
+
+.content {
+  padding: 10px 30px;
+  flex: 1 1 calc(100% - 360px);
+}
+
+.main-container {
+  display: flex;
+  .sidebar {
+    background: #fff;
+  }
+
+  .content {
+    background: #f7f7f7;
+  }
+}
+
+.contacts {
+  dl {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  dd {
+    margin: 0;
+  }
+
+  a {
+    color: #000;
+    display: block;
+  }
+
+  .contact-mail {
+    .svg-inline--fa {
+      color: #e8d44d;
+    }
+  }
+
+  .contact-ln {
+    .svg-inline--fa {
+      color: #0a63bc;
+    }
+  }
+
+  .contact-skype {
+    .svg-inline--fa {
+      color: #0174cd;
+    }
+  }
+
+  .contact-tg {
+    .svg-inline--fa {
+      color: #1f9bda;
+    }
+  }
+
+  .contact-phone {
+    .svg-inline--fa {
+      color: #c76395;
+    }
+  }
+
+  .contact-git {
+    .svg-inline--fa {
+      color: #3f2e00;
+    }
+  }
+}
+
+.experience-tools {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin-left: -10px;
+
+  .experience-tool {
+    min-width: 112px;
+    text-align: center;
+
+    &.tool-html {
+      .svg-inline--fa {
+        color: #fc490b;
+      }
+    }
+
+    &.tool-css {
+      .svg-inline--fa {
+        color: #196fb4;
+      }
+    }
+
+    &.tool-less {
+      .svg-inline--fa {
+        color: #533c79;
+      }
+    }
+
+    &.tool-sass {
+      .svg-inline--fa {
+        color: #c76395;
+      }
+    }
+
+    &.tool-js {
+      .svg-inline--fa {
+        color: #e8d44d;
+      }
+    }
+
+    &.tool-gulp {
+      .svg-inline--fa {
+        color: #ec484a;
+      }
+    }
+
+    &.tool-ts {
+      .svg-inline--fa {
+        color: #2f74c0;
+      }
+    }
+
+    &.tool-angular {
+      .svg-inline--fa {
+        color: #d61a15;
+      }
+    }
+
+    &.tool-nodejs {
+      .svg-inline--fa {
+        color: #88c249;
+      }
+    }
+
+    &.tool-mongo {
+      .svg-inline--fa {
+        color: #66ac3e;
+      }
+    }
+
+    &.tool-docker {
+      .svg-inline--fa {
+        color: #2391e6;
+      }
+    }
+
+    &.tool-git {
+      .svg-inline--fa {
+        color: #3f2e00;
+      }
+    }
+
+    &.tool-jira {
+      .svg-inline--fa {
+        color: #2580f7;
+      }
+    }
+  }
+}
+
+.work-experience {
+  padding: 20px;
+  border-radius: 3px;
+  background: rgba(0,0,0,.05);
+}

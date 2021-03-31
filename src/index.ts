@@ -1,5 +1,14 @@
+import '@fortawesome/fontawesome-free/js/fontawesome';
+import '@fortawesome/fontawesome-free/js/solid';
+import '@fortawesome/fontawesome-free/js/brands';
 import './index.scss';
-import {AbSoft} from "./scripts/script1";
 
+class App {
+    constructor() {
 
-new AbSoft();
+    }
+}
+
+(() => {
+    new App();
+})();

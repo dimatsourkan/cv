@@ -1,7 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const ROOT = path.resolve(__dirname, './src');
 const DESTINATION = path.resolve(__dirname, './dist');
@@ -11,7 +12,7 @@ module.exports = {
     target: 'web',
 
     entry: {
-        'script': './index.ts'
+        'app': './index.ts'
     },
 
     output: {
@@ -30,7 +31,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: ROOT + "/index.html",
-            inject: 'body'
+            inject: true
+        }),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "[name].css",
+            chunkFilename: "[id].css",
         }),
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin()
@@ -75,7 +82,7 @@ module.exports = {
             },
             {
                 test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader', 'resolve-url-loader'],
             }
         ]
     },
