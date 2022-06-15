@@ -8,7 +8,7 @@
     "build": "webpack --config index.config.js --mode development",
     "build.prod": "webpack --config index.config.js --mode production",
     "deploy1": "git subtree push --prefix=dist origin gh-pages",
-    "deploy2": "git push origin (git subtree split -P dist master):gh-pages --force"
+    "deploy2": "git push origin (git subtree split --prefix dist master):gh-pages --force"
   },
   "keywords": [
     "dimatsourkan-cv",
