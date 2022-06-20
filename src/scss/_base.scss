@@ -326,4 +326,10 @@ strong {
     .cv-avatar {
         margin: 0 auto 0 20px;
     }
+
+    .work-experience {
+        & + .work-experience {
+            margin-top: 35px;
+        }
+    }
 }
