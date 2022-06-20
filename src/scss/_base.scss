@@ -19,7 +19,6 @@ html, body {
 
 .container {
     background: #fff;
-    box-shadow: 0 2px 8px rgba(14, 19, 24, .07);
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
@@ -305,7 +304,7 @@ strong {
 
     .content {
         flex: 1;
-        padding: 10px 15px;
+        padding: 10px 15px 0;
     }
 
     .education {
