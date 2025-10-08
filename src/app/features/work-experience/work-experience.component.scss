@@ -1,0 +1,68 @@
+@use "mixins";
+
+
+.work-experience {
+
+  @include mixins.glass-container(false, false, 20px, 0.4);
+
+  padding: 25px;
+  display: flex;
+
+  .logo {
+    padding-right: 30px;
+    border-right: 1px solid rgba(150, 150, 150, 0.2);
+    width: calc(20% - 22px);
+    max-width: calc(20% - 22px);
+    min-width: calc(20% - 22px);
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      object-position: top center;
+    }
+
+    &.rounded {
+      img {
+        border-radius: 16px;
+      }
+    }
+
+    & ~.work-content {
+      padding-left: 30px;
+    }
+  }
+
+  h4 {
+    margin-top: 0;
+    color: #1c4f89;
+
+    a {
+      color: #376da9;
+    }
+  }
+
+  small {
+    display: block;
+    color: gray;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  & + .work-experience {
+    margin-top: 30px;
+  }
+}
+
+@media print {
+  .work-experience {
+    box-shadow: none !important;
+    border: 1px solid rgba(150, 150, 150, 0.1) !important;
+    border-right-color: rgba(150, 150, 150, 0.3) !important;
+    border-bottom-color: rgba(150, 150, 150, 0.3) !important;
+  }
+}

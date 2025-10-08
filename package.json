@@ -1,45 +1,37 @@
 {
-  "name": "dimatsourkan-cv",
-  "version": "0.0.1",
-  "description": "Dima Tsourkan CV",
-  "main": "main.bundle.js",
+  "name": "cv",
+  "version": "0.0.0",
   "scripts": {
-    "start": "webpack-cli serve --mode development",
-    "build": "webpack --config index.config.js --mode development",
-    "build.prod": "webpack --config index.config.js --mode production"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
-  "keywords": [
-    "dimatsourkan-cv",
-    "typescript",
-    "cv"
-  ],
-  "author": "Dmitry Tsurkan <dimatsourkan@gmail.com>",
-  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^20.3.3",
+    "@angular/common": "^20.3.3",
+    "@angular/compiler": "^20.3.3",
+    "@angular/core": "^20.3.3",
+    "@angular/platform-browser": "^20.3.3",
+    "@angular/platform-browser-dynamic": "^20.3.3",
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "normalize.css": "^8.0.1",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.4.0",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
-    "@babel/preset-env": "^7.4.1",
-    "@babel/preset-typescript": "^7.3.3",
-    "@types/node": "14.14.37",
-    "awesome-typescript-loader": "5.2.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^5.2.0",
-    "html-loader": "^2.1.2",
-    "html-webpack-plugin": "^5.3.1",
-    "node-sass": "^5.0.0",
-    "postcss-loader": "^5.2.0",
-    "postcss-preset-env": "^6.7.0",
-    "sass-loader": "^11.0.1",
-    "source-map-loader": "0.2.3",
-    "style-loader": "^2.0.0",
-    "tslint": "5.17.0",
-    "tslint-loader": "3.6.0",
-    "typescript": "3.5.1",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {}
+    "@angular/build": "^20.3.5",
+    "@angular/cli": "^20.3.5",
+    "@angular/compiler-cli": "^20.3.3",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.4.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.9.3"
+  }
 }

@@ -1,0 +1,146 @@
+@use "sass:string";
+@use "sass:math";
+
+$spaceAmounts: (
+  0,
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  100,
+  200,
+  -5,
+  -10,
+  -15,
+  -20,
+  -25,
+  -30,
+  -100,
+  -200
+);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceAmounts {
+
+  .m-#{$space} {
+    margin: #{$space}px;
+  }
+
+  .m-y-#{$space} {
+    margin-top: #{$space}px;
+    margin-bottom: #{$space}px;
+  }
+
+  .m-x-#{$space} {
+    margin-left: #{$space}px;
+    margin-right: #{$space}px;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}px;
+  }
+
+  .p-y-#{$space} {
+    padding-top: #{$space}px;
+    padding-bottom: #{$space}px;
+  }
+
+  .p-x-#{$space} {
+    padding-left: #{$space}px;
+    padding-right: #{$space}px;
+  }
+
+  @each $side in $sides {
+
+    .m-#{string.slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{string.slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+@function buildShadow($shadowsList: ()) {
+
+  $shadow: null;
+
+  @each $shadowItem in $shadowsList {
+    @if $shadowItem != null {
+      @if $shadow != null {
+        $shadow: $shadow, $shadowItem;
+      } @else {
+        $shadow: $shadowItem;
+      }
+    }
+  }
+
+  @if $shadow != null {
+    @return $shadow;
+  }
+}
+
+@mixin getShadow($shadow: ()) {
+  @if $shadow != null {
+    box-shadow: $shadow;
+  }
+}
+
+@mixin glass-container(
+  $canHover: true,
+  $canActive: true,
+  $shadowed: true,
+  $blur: 3px,
+  $opacity: 0.3
+) {
+
+  $reflectionDifference: 0.1;
+  $background: rgba(255, 255, 255, $opacity);
+  $topReflection: 1px 1px 0 0 rgba(255, 255, 255, $opacity + $reflectionDifference) inset;
+  $bottomReflection: -1px -1px 0 0 rgba(150, 150, 150, $opacity - $reflectionDifference) inset;
+  $insetEclipse: null;
+  //$insetEclipse: -20px -20px 60px 0 rgba(200, 200, 200, 0.1) inset, 20px 20px 60px 0 rgba(228, 248, 255, 0.2) inset;
+
+  $outerShadow: null;
+
+  @if $shadowed {
+    $outerShadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  background: $background;
+  border: none;
+
+  border-radius: 8px;
+  backdrop-filter: blur($blur);
+  transition: backdrop-filter .2s, opacity .1s, box-shadow .1s;
+  @include getShadow(($outerShadow, $insetEclipse, $topReflection, $bottomReflection));
+
+  @if $canHover {
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      @if $shadowed {
+        $outerShadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+      }
+      @include getShadow(($outerShadow, $insetEclipse, $topReflection, $bottomReflection));
+      backdrop-filter: blur($blur + 5px);
+      opacity: .8;
+    }
+  }
+
+  @if $canActive {
+    cursor: pointer;
+    user-select: none;
+
+    &:active {
+      @if $shadowed {
+        $outerShadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      @include getShadow(($outerShadow, $insetEclipse));
+    }
+  }
+}

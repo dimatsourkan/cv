@@ -1,0 +1,75 @@
+:host {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  display: block;
+  color: #fff;
+
+  .header-title {
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+
+  .left {
+    flex: 1 1 360px;
+    padding: 10px 30px;
+  }
+
+  .right {
+    padding: 10px 30px;
+    flex: 1 1 calc(100% - 360px);
+  }
+}
+
+.parallax {
+  z-index: -2;
+  background-image: url("./../../../../public/bg-2.webp");
+  object-position: center center;
+  background-size: cover;
+  filter: blur(3px);
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  right: -100px;
+  bottom: -100px;
+}
+
+.cv-avatar {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, .7);
+  border-radius: 32px;
+  margin: 20px auto;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media print {
+  .left, .actions, .parallax {
+    display: none;
+  }
+
+  .right {
+    padding: 0 !important;
+    flex: 100%;
+  }
+
+  :host {
+    color: #000;
+  }
+}

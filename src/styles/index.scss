@@ -1,0 +1,44 @@
+@use "helpers/_mixins";
+@use "helpers/_icons";
+@use "helpers/_tooltip";
+@use "helpers/_button";
+@use "normalize.css";
+@use "@fortawesome/fontawesome-free/css/all";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Montserrat", serif;
+  line-height: 1.4;
+  font-size: 14px;
+  min-height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+.text-muted {
+  color: gray;
+}
+
+@media print {
+  html, body {
+    font-size: 12px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+  }
+}

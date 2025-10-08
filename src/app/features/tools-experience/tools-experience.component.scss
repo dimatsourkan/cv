@@ -1,0 +1,115 @@
+@use "mixins";
+@use "sass:math";
+
+.experience-tools {
+  $gap: 16px;
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: $gap;
+
+  .experience-tool {
+    @include mixins.glass-container(false, false, true, 20px, 0.4);
+
+    text-align: center;
+    width: calc(100% / 5 - #{$gap - math.div($gap, 5)});
+    padding: 15px;
+
+    h4 {
+      margin-bottom: 0;
+      font-weight: 600;
+    }
+
+    small {
+      color: gray;
+      font-weight: 400;
+    }
+
+    &.tool-html {
+      .fab {
+        color: #fc490b;
+      }
+    }
+
+    &.tool-css {
+      .fab {
+        color: #196fb4;
+      }
+    }
+
+    &.tool-less {
+      .fab {
+        color: #533c79;
+      }
+    }
+
+    &.tool-sass {
+      .fab {
+        color: #c76395;
+      }
+    }
+
+    &.tool-js {
+      .fab {
+        color: #e8d44d;
+      }
+    }
+
+    &.tool-gulp {
+      .fab {
+        color: #ec484a;
+      }
+    }
+
+    &.tool-ts {
+      .fab {
+        color: #2f74c0;
+      }
+    }
+
+    &.tool-angular {
+      .fab {
+        color: #d61a15;
+      }
+    }
+
+    &.tool-nodejs {
+      .fab {
+        color: #88c249;
+      }
+    }
+
+    &.tool-mongo {
+      .fab {
+        color: #66ac3e;
+      }
+    }
+
+    &.tool-docker {
+      .fab {
+        color: #2391e6;
+      }
+    }
+
+    &.tool-git {
+      .fa {
+        color: #3f2e00;
+      }
+    }
+
+    &.tool-jira {
+      .fab {
+        color: #2580f7;
+      }
+    }
+  }
+}
+
+@media print {
+  .experience-tool {
+    box-shadow: none !important;
+    border: 1px solid rgba(150, 150, 150, 0.1) !important;
+    border-right-color: rgba(150, 150, 150, 0.3) !important;
+    border-bottom-color: rgba(150, 150, 150, 0.3) !important;
+  }
+}

@@ -1,0 +1,23 @@
+<svg role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483 233">
+  <defs>
+    <style>.cls-2 {
+      fill-rule: evenodd;
+      fill: #000
+    }</style>
+    <mask id="mask" width="233" height="233" x="24" y="0" maskUnits="userSpaceOnUse">
+      <g transform="translate(-65 -280)">
+        <g id="mask0">
+          <path d="M89 280h233v233H89Z" style="fill-rule:evenodd;fill:#fff"></path>
+        </g>
+      </g>
+    </mask>
+  </defs>
+  <path d="M65 509h9V338h-9ZM65 311h9v-31h-9Z" class="cls-2" transform="translate(-65 -280)"></path>
+  <g style="mask:url(#mask)">
+    <path
+      d="M180 483c-12-13-17-34-17-63v-26h7c49 0 69 15 69 52 0 28-13 45-40 52a53 53 0 0 1-19-15Zm-8 17H97V394h57v26c0 39 10 66 31 80h-13ZM97 386h57v-98H97Zm66-98c45 0 66 16 66 48 0 34-19 50-60 50h-6Zm150 132c0 29-6 50-17 63-12 15-31 21-58 21a115 115 0 0 1-25-2 60 60 0 0 0 14-8c14-11 21-27 21-49 0-39-24-52-46-56 24-7 36-26 36-53 0-20-6-35-21-44-12-8-29-12-53-12H89v229h84a125 125 0 0 0 25-2c11 4 24 6 40 6 58 0 84-29 84-93V280h-9Z"
+      class="cls-2" transform="translate(-65 -280)"></path>
+  </g>
+  <path d="M337 509h8V280h-8ZM548 288v-8H384v8h77v212h-92V280h-9v229h139v-9h-29V288Z" class="cls-2"
+        transform="translate(-65 -280)"></path>
+</svg>
