@@ -10,7 +10,4 @@ import { ParallaxDirective } from '../../shared/directives/parallax.directive';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  print() {
-    window.print();
-  }
 }

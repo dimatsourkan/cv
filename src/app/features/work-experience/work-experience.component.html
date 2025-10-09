@@ -1,154 +1,49 @@
 <h2>Work experience</h2>
 
-<div class="work-experience">
-  <div class="logo">
-    <img src="loan-sure-logo-dark.png" alt="">
-  </div>
-  <div class="work-content">
-    <h4>
-      Front-End (Tech Lead) at <a
-      target="_blank"
-      href="https://www.monsterleadgroup.com/"
-    >Monster Lead Group</a> <small>from May 2021 to the present</small>
-    </h4>
-    <p>
-      <strong>TOOLS AND TECHNOLOGIES:</strong> Angular 20, Angular-cli, Signals, RxJs, NGXS, Angular Material,
-      FxLayout, Ag-Grid, Storybook, Jest
-    </p>
-    <p>
-      <strong>PROJECTS DESCRIPTION:</strong> - MLG offers mail-order marketing services in the United
-      States. Our team was engaged in the transfer of this business to online services.<br/> - This
-      application is for clients who want to order mailing letters, it allows you to select templates,
-      fill in data, select leads for mailing, calculate cost, terms.
-    </p>
-    <p>
-      <strong>RESPONSIBILITIES:</strong>
-      - Architecture development of front-end applications and libraries<br/>
-      - Components and modules development<br/>
-      - Code review, mentoring<br/>
-    </p>
-  </div>
-</div>
+@for (item of experienceData(); track item.company) {
+  <div class="work-experience">
+    <div class="logo">
+      <img [src]="item.logoPath" alt="">
+    </div>
 
-<div class="work-experience">
-  <div class="logo">
-    <img src="ibuilt.svg" alt="">
-  </div>
-  <div class="work-content">
-    <h4>
-      Full-Stack JavaScript Developer at <a
-      target="_blank"
-      href="https://ibuilt.com/"
-    >iBuilt</a> <small>from September 2019 to May 2021</small>
-    </h4>
-    <p>
-      <strong>TOOLS AND TECHNOLOGIES:</strong> JS ES6, Angular 11, RxJs, Angular Material,
-      Angular-cli, FxLayout, Storybook, Jasmine & Karma, NestJs, MongoDB
-    </p>
-    <p>
-      <strong>PROJECTS DESCRIPTION:</strong> iBUILT is a construction company based in NY city. We
-      developed 2 internal products — DTP and GDS. DTP or Digital Twin Platform is a platform for
-      management buildings such as residential complexes or hotels. The building owner has a digitized
-      version of his property and can control and maintain its lifetime circle. GDS or Generative
-      Design System is a SaaS that made it possible, according to the specified parameters, to
-      generate a fully-featured building layout in Revit format for further construction.
 
-    </p>
-    <p>
-      <strong>RESPONSIBILITIES:</strong> - Development of front-end and back-end for DTP platform,
-      mainly CRUD operations<br/> - Front-end and backend development for GDS platform<br/> -
-      Development of a library for interacting with 3d models<br/> - Development of a microservice for
-      calculating costs and benefits from proposed buildings
-    </p>
-    <p class="m-b-0">
-      <strong>REASON FOR LEAVING:</strong> The company stopped the development of the application.
-    </p>
-  </div>
-</div>
+    <div class="work-content">
+      <h4>
+        {{ item.position }} at
 
-<div class="work-experience">
-  <div class="logo">
-    <img src="booking-health.webp" alt="">
-  </div>
-  <div class="work-content">
-    <h4>
-      Front-End Developer at <a
-      target="_blank"
-      href="https://bookinghealth.com/"
-    >Booking Health GmbH</a> <small>from October 2018 to August 2019</small>
-    </h4>
-    <p>
-      <strong>TOOLS AND TECHNOLOGIES:</strong> JS ES6, Angular 10, RxJs, Bootstrap, Angular-cli,
-      GraphQL, NodeJs, NestJs, AWS S3, MongoDB
-    </p>
-    <p>
-      <strong>PROJECTS DESCRIPTION:</strong> - Booking Health is a medical company based in
-      Germany<br/> - It is a platform for registering users from different countries for medical
-      examinations.<br/> - In this system, users could then see the examination results such as MRT,
-      X-ray, etc.
-    </p>
-    <p>
-      <strong>RESPONSIBILITIES:</strong> - Architecture development of front-end applications<br/> -
-      Development of the file manager library<br/> - File manager API development with NodeJs<br/> -
-      Development of a library for viewing X-RAY and MRI
-    </p>
-    <p class="m-b-0">
-      <strong>REASON FOR LEAVING:</strong> The project was released.
-    </p>
-  </div>
-</div>
+        @if (item.link) {
+          <a
+            target="_blank"
+            [href]="item.link"
+          >{{ item.company }}</a>
+        } @else {
+          {{ item.company }}
+        }
 
-<div class="work-experience">
-  <div class="logo">
-    <img src="attract-group.svg" alt="">
-  </div>
-  <div class="work-content">
-    <h4>
-      Front-End Developer at <a
-      target="_blank"
-      href="https://attractgroup.com/"
-    >Attract Group</a> <small>from December 2015 to October 2018</small>
-    </h4>
-    <p>
-      <strong>TOOLS AND TECHNOLOGIES:</strong>HTML, CSS (LESS, SCSS), JavaScript (jQuery), Gulp,
-      Webpack, AngularJs, Angular2+, TypeScript, Electron, Node.Js, Wordpress, Docker, Jenkins
-    </p>
-    <p>
-      <strong>PROJECTS DESCRIPTION:</strong> - Predominantly closed crm systems<br/> - Task management
-      system, the project was used by the company (similar to Jira) (Angular)<br/> - Monolithic
-      applications (HTML, CSS, JS + Laravel or Wordpress on the backend)<br/> - Bots traders (working
-      with cryptocurrency) (Node.Js + TypeScript)
-    </p>
-    <p>
-      <strong>RESPONSIBILITIES:</strong> - Layout of templates from PSD and other editors<br/> -
-      Development front-end applications on Angular<br/> - Development microservices with NodeJs
-    </p>
-    <p class="m-b-0">
-      <strong>REASON FOR LEAVING:</strong>Another company offered more favorable terms.
-    </p>
-  </div>
-</div>
+        <small>{{ item.duration }}</small>
+      </h4>
 
-<div class="work-experience">
-  <div class="logo rounded">
-    <img src="default-placeholder.svg" alt="">
+      <h5>TOOLS AND TECHNOLOGIES:</h5>
+      <p>{{ item.technologies | join }}</p>
+
+      <h5>PROJECTS DESCRIPTION:</h5>
+      <ul>
+        @for (description of item.projectsDescription; track description) {
+          <li>{{ description }}</li>
+        }
+      </ul>
+
+      <h5>RESPONSIBILITIES:</h5>
+      <ul>
+        @for (responsibility of item.responsibilities; track responsibility) {
+          <li>{{ responsibility }}</li>
+        }
+      </ul>
+
+      @if (item.reasonForLeaving) {
+        <h5>REASON FOR LEAVING:</h5>
+        <p>{{ item.reasonForLeaving }}</p>
+      }
+    </div>
   </div>
-  <div class="work-content">
-    <h4>
-      HTML/CSS Developer at EXSY <small>from August 2014 to December 2015</small>
-    </h4>
-    <p>
-      <strong>TOOLS AND TECHNOLOGIES:</strong>HTML, CSS (LESS), JavaScript (jQuery)
-    </p>
-    <p>
-      <strong>PROJECTS DESCRIPTION:</strong> There were many projects (about 30), I can not single out
-      any projects
-    </p>
-    <p>
-      <strong>RESPONSIBILITIES:</strong> - Layout of templates from PSD and other editors
-    </p>
-    <p class="m-b-0">
-      <strong>REASON FOR LEAVING:</strong>Too many similar projects
-    </p>
-  </div>
-</div>
+}

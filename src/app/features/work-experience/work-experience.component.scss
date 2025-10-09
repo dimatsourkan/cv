@@ -1,6 +1,5 @@
 @use "mixins";
 
-
 .work-experience {
 
   @include mixins.glass-container(false, false, 20px, 0.4);
@@ -10,6 +9,7 @@
 
   .logo {
     padding-right: 30px;
+    margin-right: 30px;
     border-right: 1px solid rgba(150, 150, 150, 0.2);
     width: calc(20% - 22px);
     max-width: calc(20% - 22px);
@@ -26,10 +26,6 @@
         border-radius: 16px;
       }
     }
-
-    & ~.work-content {
-      padding-left: 30px;
-    }
   }
 
   h4 {
@@ -38,6 +34,35 @@
 
     a {
       color: #376da9;
+    }
+  }
+
+  h5 {
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+
+  p {
+    margin-top: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    margin-top: 0;
+    padding-left: 15px;
+    list-style: "-   ";
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      &:not(:last-of-type) {
+        margin-bottom: 5px;
+      }
     }
   }
 
@@ -59,10 +84,36 @@
 }
 
 @media print {
+  h2 {
+    margin-bottom: 10px;
+  }
+
   .work-experience {
+    padding: 10px 25px;
     box-shadow: none !important;
     border: 1px solid rgba(150, 150, 150, 0.1) !important;
     border-right-color: rgba(150, 150, 150, 0.3) !important;
     border-bottom-color: rgba(150, 150, 150, 0.3) !important;
+
+    & + .work-experience {
+      margin-top: 15px;
+    }
+
+    h5 {
+      margin-bottom: 5px;
+    }
+
+    small {
+      display: inline !important;
+      margin-left: 15px;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    p, li {
+      font-size: 11px;
+    }
   }
 }
