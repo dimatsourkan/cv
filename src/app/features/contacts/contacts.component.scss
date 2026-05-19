@@ -1,84 +1,131 @@
 @use "mixins";
 
-.contacts {
-  dl {
-    display: flex;
-    align-items: center;
-    margin: 20px 0;
-  }
+:host {
+  display: block;
+  height: 100%;
+}
 
-  dd {
+.contacts {
+  @include mixins.card(32px, 24px);
+  @include mixins.card-hover;
+  height: 100%;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin: 0 0 8px;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0 0 24px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  li {
     margin: 0;
   }
 
   a {
-    color: #000;
-    display: block;
-  }
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px;
+    margin: 0 -10px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background 0.15s var(--ease);
 
-  .contact-mail {
-    .fab {
-      color: #e8d44d;
-    }
-  }
-
-  .contact-ln {
-    .fab {
-      color: #0a63bc;
-    }
-  }
-
-  .contact-tg {
-    .fab {
-      color: #1f9bda;
-    }
-  }
-
-  .contact-phone {
-    .fab {
-      color: #c76395;
-    }
-  }
-
-  .contact-whatsapp {
-    .fab {
-      color: #2cd46b;
-    }
-  }
-
-  .contact-git {
-    .fab {
-      color: #3f2e00;
+    &:hover {
+      background: rgba(0, 0, 0, 0.03);
+      color: var(--text-primary);
     }
   }
 }
 
-@media screen and (max-width: 991px) {
-  .contacts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-size: 18px;
 
-    dl {
-      width: calc((100%) / 3 - 10px);
-      margin: 0;
-    }
+  i {
+    line-height: 1;
   }
+
+  &.icon-mail i { color: #ea4335; }
+  &.icon-ln i { color: #0a66c2; }
+  &.icon-tg i { color: #229ed9; }
+  &.icon-wa i { color: #25d366; }
+  &.icon-phone i { color: #1d1d1f; }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.label-name {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+.label-value {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media print {
   .contacts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    dl {
-      width: calc((100%) / 3 - 10px);
-      margin: 0;
-    }
+    padding: 0;
+    border: none;
+    box-shadow: none;
   }
 
-  h2 {
-    margin-bottom: 10px;
+  .section-label {
+    display: none;
+  }
+
+  .card-title {
+    font-size: 14px;
+    margin: 0 0 8px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .contact-list a {
+    padding: 4px 0;
+    margin: 0;
   }
 }

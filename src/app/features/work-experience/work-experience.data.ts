@@ -65,7 +65,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     ],
     responsibilities: [
       'Development of front-end and back-end for internal platforms',
-      'Development of a library for interacting with 3d models',
+      'Development of a library for interacting with 3d models (based on revit)',
       'Development of a microservice for calculating costs and benefits from proposed buildings'
     ],
     reasonForLeaving: 'The company stopped the development of the application.'

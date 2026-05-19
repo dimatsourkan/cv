@@ -1,27 +1,66 @@
 @use "mixins";
 
+:host {
+  display: block;
+}
+
 .about-me {
-  @include mixins.glass-container(false, false, true, 20px, 0.4);
-  padding: 25px;
+  @include mixins.card(48px, 28px);
+  @include mixins.card-hover;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin: 0 0 12px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin: 0 0 32px;
+  max-width: 700px;
+  color: var(--text-primary);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 760px;
 
   p {
-    &:first-child {
-      margin-top: 0;
-    }
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    strong {
-      font-weight: 600;
-    }
+@media (max-width: 640px) {
+  .about-me {
+    padding: 32px 24px;
   }
 }
 
 @media print {
   .about-me {
     padding: 0;
+    border: none;
     box-shadow: none;
+  }
+
+  .section-label {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 18px;
+    margin: 0 0 8px;
   }
 }

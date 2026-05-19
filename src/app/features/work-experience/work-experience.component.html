@@ -1,49 +1,66 @@
-<h2>Work experience</h2>
+<div class="work">
+  <header class="section-header">
+    <p class="section-label">Career</p>
+    <h2 class="section-title">Work experience</h2>
+    <p class="section-sub">Building products and platforms since 2014.</p>
+  </header>
 
-@for (item of experienceData(); track item.company) {
-  <div class="work-experience">
-    <div class="logo">
-      <img [src]="item.logoPath" alt="">
-    </div>
+  <div class="timeline">
+    @for (item of experienceData(); track item.company; let i = $index) {
+      <article class="job" appReveal [delay]="i * 80">
+        <div class="job-logo">
+          <img [src]="item.logoPath" [alt]="item.company">
+        </div>
 
+        <div class="job-content">
+          <div class="job-head">
+            <h3 class="job-title">
+              {{ item.position }}
+              <span class="at">at</span>
+              @if (item.link) {
+                <a target="_blank" rel="noopener" [href]="item.link">{{ item.company }}</a>
+              } @else {
+                <span class="company">{{ item.company }}</span>
+              }
+            </h3>
+            <span class="duration">{{ item.duration }}</span>
+          </div>
 
-    <div class="work-content">
-      <h4>
-        {{ item.position }} at
+          <div class="block">
+            <h5 class="block-title">Tools &amp; technologies</h5>
+            <div class="chips">
+              @for (tech of item.technologies; track tech) {
+                <span class="chip">{{ tech }}</span>
+              }
+            </div>
+          </div>
 
-        @if (item.link) {
-          <a
-            target="_blank"
-            [href]="item.link"
-          >{{ item.company }}</a>
-        } @else {
-          {{ item.company }}
-        }
+          <div class="block">
+            <h5 class="block-title">Projects</h5>
+            <ul class="bullet-list">
+              @for (description of item.projectsDescription; track description) {
+                <li>{{ description }}</li>
+              }
+            </ul>
+          </div>
 
-        <small>{{ item.duration }}</small>
-      </h4>
+          <div class="block">
+            <h5 class="block-title">Responsibilities</h5>
+            <ul class="bullet-list">
+              @for (responsibility of item.responsibilities; track responsibility) {
+                <li>{{ responsibility }}</li>
+              }
+            </ul>
+          </div>
 
-      <h5>TOOLS AND TECHNOLOGIES:</h5>
-      <p>{{ item.technologies | join }}</p>
-
-      <h5>PROJECTS DESCRIPTION:</h5>
-      <ul>
-        @for (description of item.projectsDescription; track description) {
-          <li>{{ description }}</li>
-        }
-      </ul>
-
-      <h5>RESPONSIBILITIES:</h5>
-      <ul>
-        @for (responsibility of item.responsibilities; track responsibility) {
-          <li>{{ responsibility }}</li>
-        }
-      </ul>
-
-      @if (item.reasonForLeaving) {
-        <h5>REASON FOR LEAVING:</h5>
-        <p>{{ item.reasonForLeaving }}</p>
-      }
-    </div>
+          @if (item.reasonForLeaving) {
+            <div class="block reason">
+              <h5 class="block-title">Reason for leaving</h5>
+              <p>{{ item.reasonForLeaving }}</p>
+            </div>
+          }
+        </div>
+      </article>
+    }
   </div>
-}
+</div>

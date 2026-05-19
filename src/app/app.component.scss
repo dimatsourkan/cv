@@ -1,102 +1,89 @@
-.wrapper {
-  width: 100%;
-  height: 100%;
-}
-
-.header {
-  padding-bottom: 75px;
-}
-
-.main-container {
-  display: flex;
+.app {
   position: relative;
-  z-index: 11;
-  border-radius: 16px;
-  overflow: hidden;
-  margin-top: -75px;
-  margin-bottom: 100px;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+  isolation: isolate;
 }
 
-.sidebar {
-  flex: 1 1 360px;
-  padding: 10px 30px;
+.content-shell {
+  position: relative;
+  z-index: 1;
+  padding-top: 80px;
+  padding-bottom: 120px;
   display: flex;
   flex-direction: column;
-  background: #f8f8f8;
+  gap: 80px;
 }
 
-.content {
-  padding: 10px 30px 30px;
-  flex: 1 1 calc(100% - 360px);
+.section {
+  width: 100%;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.info-card-stack {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  //background: #d7ecff;
-  background: #e4f1dd;
-  //background-image: url("./../../public/bg.png");
-
+  gap: 24px;
 }
 
-@media screen and (max-width: 991px) {
-  .main-container {
-    flex-direction: column;
-    margin-bottom: 0;
+.info-card {
+  display: block;
+
+  &.info-card-education {
+    height: 100%;
+  }
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  padding: 40px 0 60px;
+  border-top: 1px solid var(--border);
+
+  p {
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 13px;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .content-shell {
+    padding-top: 48px;
+    padding-bottom: 80px;
+    gap: 56px;
   }
 
-  .sidebar {
-    flex: 0;
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .content {
-    flex: 1;
-  }
-
-  .contacts {
-    width: 100%;
-  }
-
-  .location {
-    width: calc((100%) / 3);
-  }
-
-  .education {
-    width: calc(((100%) / 3) * 2);
+  .info-card-stack {
+    gap: 20px;
   }
 }
 
 @media print {
-  .main-container {
-    flex-direction: column;
+  .content-shell {
+    padding: 24px 0 0;
+    gap: 24px;
   }
 
-  .sidebar {
-    padding: 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background: none;
+  .info-grid {
+    grid-template-columns: 1fr 2fr;
     gap: 20px;
-    flex: 0;
   }
 
-  .content {
-    padding: 0;
-    margin-top: 25px;
-    gap: 40px;
-  }
-
-  .contacts {
-    width: 100%;
-  }
-
-  .location {
-    width: 30%;
-  }
-
-  .education {
-    width: 70%;
+  .footer {
+    display: none;
   }
 }

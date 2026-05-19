@@ -6,6 +6,7 @@ import { AboutMeComponent } from './features/about-me/about-me.component';
 import { ToolsExperienceComponent } from './features/tools-experience/tools-experience.component';
 import { WorkExperienceComponent } from './features/work-experience/work-experience.component';
 import { EducationComponent } from './features/education/education.component';
+import { RevealDirective } from './shared/directives/reveal.directive';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { EducationComponent } from './features/education/education.component';
     AboutMeComponent,
     ToolsExperienceComponent,
     WorkExperienceComponent,
-    EducationComponent
+    EducationComponent,
+    RevealDirective
   ],
   styleUrl: './app.component.scss'
 })

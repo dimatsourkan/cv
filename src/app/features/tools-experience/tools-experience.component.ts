@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RevealDirective } from '../../shared/directives/reveal.directive';
 
 @Component({
   selector: 'app-tools-experience',
-  imports: [],
+  imports: [RevealDirective],
   templateUrl: './tools-experience.component.html',
   styleUrl: './tools-experience.component.scss'
 })

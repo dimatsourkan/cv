@@ -1,24 +1,35 @@
-<div class="wrapper">
+<div class="app">
+  <app-header/>
 
-  <app-header class="header"/>
+  <main class="container content-shell">
 
-  <div class="container">
+    <section appReveal class="section section-about">
+      <app-about-me/>
+    </section>
 
-    <div class="main-container">
+    <section appReveal class="section section-info">
+      <div class="info-grid">
+        <app-contacts class="info-card"/>
+        <div class="info-card-stack">
+          <app-location class="info-card"/>
+          <app-education class="info-card info-card-education"/>
+        </div>
+      </div>
+    </section>
 
-      <aside class="sidebar">
-        <app-contacts class="contacts"/>
-        <app-location class="location"/>
-        <app-education class="education"/>
-      </aside>
+    <section appReveal class="section">
+      <app-tools-experience/>
+    </section>
 
-      <main class="content">
+    <section appReveal class="section">
+      <app-work-experience/>
+    </section>
 
-        <app-about-me/>
-        <app-tools-experience/>
-        <app-work-experience/>
+  </main>
 
-      </main>
+  <footer class="footer">
+    <div class="container">
+      <p>© Dmytro Tsurkan · Crafted with care.</p>
     </div>
-  </div>
+  </footer>
 </div>

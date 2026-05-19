@@ -1,21 +1,73 @@
-<div class="parallax" appParallax></div>
-
-<div class="container">
-  <div class="left">
-    <div class="cv-avatar">
-      <img
-        ngSrc="user-default.webp"
-        [width]="200"
-        [height]="200"
-        alt=""
-      >
+<div class="hero">
+  <div class="hero-bg">
+    <div class="orb-wrap orb-wrap-1" appParallax [strength]="40">
+      <div class="orb orb-1"></div>
+    </div>
+    <div class="orb-wrap orb-wrap-2" appParallax [strength]="60">
+      <div class="orb orb-2"></div>
+    </div>
+    <div class="orb-wrap orb-wrap-3" appParallax [strength]="80">
+      <div class="orb orb-3"></div>
     </div>
   </div>
-  <div class="right">
-    <h1 class="header-title">Tsurkan Dmytro</h1>
-    <h3 class="header-subtitle">Front-End / Full-Stack JavaScript Developer</h3>
+
+  <div class="grid-overlay"></div>
+
+  <div class="container hero-inner">
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar">
+        <img
+          ngSrc="user-default.webp"
+          [width]="200"
+          [height]="200"
+          alt="Dmytro Tsurkan"
+          priority
+        >
+      </div>
+    </div>
+
+    <p class="eyebrow">Hello, I'm</p>
+    <h1 class="hero-title">Dmytro Tsurkan</h1>
+    <h2 class="hero-subtitle">Front-End / Full-Stack JavaScript Developer</h2>
+
+    <p class="hero-tagline">
+      Building thoughtful, performant web experiences for over a decade.
+    </p>
+
     <div class="actions">
-      <a class="button" href="cv.pdf" target="_blank">Download CV</a>
+      <a class="button" href="cv.pdf" target="_blank">
+        <i class="fa fa-arrow-down"></i>
+        Download CV
+      </a>
+      <a class="button button-ghost" href="mailto:dimatsourkan@gmail.com">
+        <i class="fa fa-envelope"></i>
+        Get in touch
+      </a>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="scroll-line"></span>
+    </div>
+  </div>
+</div>
+
+<div class="page-header" [class.is-stuck]="stuck()">
+  <div class="container ph-container">
+    <a class="ph-brand" href="#" (click)="scrollToTop($event)">
+      <div class="ph-avatar">
+        <img ngSrc="user-default.webp" [width]="80" [height]="80" alt="">
+      </div>
+      <div class="ph-text">
+        <p class="ph-name">Dmytro Tsurkan</p>
+        <p class="ph-role">Front-End / Full-Stack Developer</p>
+      </div>
+    </a>
+    <div class="ph-actions">
+      <a class="button ph-button" href="cv.pdf" target="_blank">
+        <i class="fa fa-arrow-down"></i>
+        Download CV
+      </a>
     </div>
   </div>
 </div>

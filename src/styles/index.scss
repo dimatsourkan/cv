@@ -2,38 +2,109 @@
 @use "helpers/_icons";
 @use "helpers/_tooltip";
 @use "helpers/_button";
+@use "helpers/_reveal";
 @use "normalize.css";
 @use "@fortawesome/fontawesome-free/css/all";
+
+:root {
+  --bg: #f5f5f7;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #fbfbfd;
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #86868b;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.12);
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 * {
   box-sizing: border-box;
 }
 
 html, body {
-  font-family: "Montserrat", serif;
-  line-height: 1.4;
-  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  font-size: 15px;
+  color: var(--text-primary);
+  background: var(--bg);
   min-height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0 0 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+
+  &:hover {
+    color: var(--accent-hover);
+  }
+}
+
+strong {
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .container {
-  max-width: 1500px;
+  max-width: 1080px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
-
 .text-muted {
-  color: gray;
+  color: var(--text-tertiary);
 }
 
 @media print {
+  :root {
+    --bg: #fff;
+    --bg-elevated: #fff;
+  }
+
   html, body {
     font-size: 12px;
   }

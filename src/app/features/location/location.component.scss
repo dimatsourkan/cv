@@ -1,9 +1,81 @@
+@use "mixins";
+
+:host {
+  display: block;
+}
+
+.location {
+  @include mixins.card(28px, 24px);
+  @include mixins.card-hover;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin: 0 0 8px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
+}
+
+.value {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #b6d7ff 0%, #ffd6e8 100%);
+  color: #fff;
+  font-size: 18px;
+}
+
+.city {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.country {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin: 2px 0 0;
+  line-height: 1.2;
+}
+
 @media print {
-  h2 {
-    margin-bottom: 5px !important;
+  .location {
+    padding: 0;
+    border: none;
+    box-shadow: none;
   }
 
-  p {
-    margin-top: 0;
+  .section-label {
+    display: none;
+  }
+
+  .card-title {
+    font-size: 14px;
+    margin: 0 0 4px;
+  }
+
+  .icon {
+    display: none;
   }
 }
